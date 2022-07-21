@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/style.css">
+		<title>Pokedex</title>
+	</head>
+	<body>
+		<main id="background-pokedex">
+			<section id="userOn">
+				<img src="./img/ball.png" alt="utilisateur">
+				<h2>{{userConnect}}</h2>
+			</section>
+
+			<section id="navBar">
+				<a href=""><img src="./img/pokemon.png" alt=""></a>
+				<a href="/pokedex"><img src="./img/pokeball (1).png" alt=""></a>
+				<a href="/addPokemon"><img src="./img/plus.png" alt=""></a>
+			</section>
+			<section id="containerPokemon">
+				{% for pokemon in pokemon %}
+
+					<div class="modal" data-pokeid={{pokemon._id}}>
+						<div id="del">
+							<p>Etes vous sur de vouloir supprimer ce pokemon ?</p>
+							<div>
+								<button onclick="modalBack({{loop.index}})">NON</button>
+								<a id="linkDelete">OUI</a>
+							</div>
+						</div>
+					</div>
+
+					<article id="cardPokedex" style='background = url(".img/{{pokemon.type}}");'>
+
+						<div id="hoverCard">
+							<button id="delete" onclick="modalDelete({{loop.index}})">Supprimer</button>
+							<button>
+								<a href="/updatePokemon/{{pokemon.id}}">Modifier</a>
+							</button>
+						</div>
+
+
+						<div id="cardTop">
+						{# debut multer (***** image *****) #}
+							{% if pokemon.img == "pikachu.png" %}
+                                <img src="./img/rattata.png" alt="image pokemon">
+							{% else %}
+								<img src="./uploads/images/{{pokemon.img}}" alt="image pokemon">
+							{% endif %}
+							
+							{# fin multer (***** image *****) #}
+							<div>
+								<p id"levelpokemon">{{pokemon.level}}</p>
+							</div>
+						</div>
+
+						<div id="cardBottom">
+							<p id="namePokemon">{{pokemon.name}}</p>
+							<span>
+								<p id="attackPokemon">{{pokemon.type}}</p>
+							</span>
+						</div>
+
+					</article>
+				{% endfor %}
+			</section>
+
+			<section id="deconexion">
+				<a href="/logout"><img src="./img/deconexion.png" alt="deconexion">
+					Deconexion</a>
+			</section>
+
+		</main>
+
+		<script src="./js/main.js"></script>
+	</body>
+</html>

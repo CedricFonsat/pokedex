@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/style.css">
+		<title>Modifier Pokemon</title>
+	</head>
+	<body>
+		<main id="background-pokedex">
+			<section id="userOn">
+				<img src="/img/ball.png" alt="utilisateur">
+				<h2>{{userConnect}}</h2>
+			</section>
+
+			<section id="addNavBar">
+				<a href=""><img src="/img/pokemon.png" alt=""></a>
+				<a href=""><img src="/img/pokeball (1).png" alt=""></a>
+				<a href=""><img src="/img/plus.png" alt=""></a>
+			</section>
+			<section id="addPokemon">
+
+				<form action="/updatePokemon/{{pokemon.id}}" method="post">
+					<h2>MODIFIER : {{pokemon.name}}</h2>
+					<input class="imput" placeholder="Nom du pokemon" name="name" type="text" value="{{pokemon.name}}">
+					<input class="imput" placeholder="Niveau du pokemon" name="level" value="{{pokemon.level}}" type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==2) return false;">
+					<select name="type" id="">
+						<option value="Feu">Feu</option>
+						<option value="Plante">Plante</option>
+                        <option value="Splash">Splash</option> 
+                        <option value="Tooth">Tooth</option>
+                        <option value="Big Mooth">Big Mooth</option>
+                        <option value="Big Hair">Big Hair</option>
+					</select>
+					<button type="submit">MODIFIER</button>
+				</form>
+
+			</section>
+
+
+			<section id="deconexion">
+				<a href="/logout"><img src="/img/deconexion.png" alt="deconexion">
+					Deconexion</a>
+			</section>
+
+		</main>
+	</body>
+</html>

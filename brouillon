@@ -1,0 +1,129 @@
+
+userRouter.get("/users", async (req, res) => {
+  let userConnect = await UserModel.findOne({ _id: req.session.user });
+  if (userConnect) {
+    userConnect = userConnect.name;
+  }
+  let users = await UserModel.find();
+  res.render("users.twig", {
+    users: users,
+    userConnect: userConnect,
+  });
+});
+
+userRouter.get("/user/:id", async (req, res) => {
+  try {
+    let user = await UserModel.findOne({ _id: req.params.id });
+    res.json(user);
+  } catch (error) {
+    res.send(error);
+  }
+});
+//signup
+userRouter.get("/user", async (req, res) => {
+  try {
+    await UserModel.findOne({ _id: req.params.id }, req.body);
+    res.render("form.twig");
+  } catch (error) {
+    res.send(error);
+  }
+});
+userRouter.post("/user", async (req, res) => {
+  try {
+    const newUser = new UserModel(req.body);
+    await newUser.save();
+    res.redirect("/users");
+  } catch (error) {
+    console.log(error);
+  }
+});
+//delete
+userRouter.get("/deleteUser/:id", async (req, res) => {
+  try {
+    await UserModel.deleteOne({ _id: req.params.id });
+    res.redirect("/users");
+  } catch (error) {
+    res.send(error);
+  }
+});
+//update
+userRouter.get("/updateUser/:id", async (req, res) => {
+  try {
+    let user = await UserModel.findOne({ _id: req.params.id }, req.body);
+    res.render("userUpdate.twig", {
+      user: user,
+    });
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+userRouter.post("/updateUser/:id", async (req, res) => {
+  try {
+    await UserModel.updateOne({ _id: req.params.id }, req.body);
+    res.redirect("/users");
+  } catch (error) {
+    res.send(error);
+  }
+});
+//login
+userRouter.get("/login", async (req, res) => {
+  try {
+    let user = await UserModel.findOne({ _id: req.params.id }, req.body);
+    res.render("login.twig", {
+      user: user,
+    });
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+userRouter.post("/login", async (req, res) => {
+  try {
+    let user = await UserModel.findOne({
+      password: req.body.password,
+      mail: req.body.mail,
+    });
+    if (user) {
+      console.log("vous etes connecté");
+      req.session.user = user._id;
+      res.redirect("/users");
+    }
+  } catch (error) {
+    console.log("blblajkfjkhgkvliglvgvlifi");
+    res.send(error);
+  }
+});
+//logout
+userRouter.get('/logout', function(req, res) {
+   req.session.destroy()
+  res.redirect('/users');
+});
+
+////'frgrgfgf
+
+import UserModel from "../models/user.js";
+
+export class userController{
+    static async getUsers(){
+        let users = 
+        return users
+    }
+}
+
+export default userController 
+
+
+///////
+
+//userView
+userRouter.get("/pokedex", async (req, res) => {
+  try {
+    let user = await UserModel.findOne({ _id: req.params.id }, req.body);
+    res.render("pokedex.twig", {
+      user: user,
+    });
+  } catch (error) {
+    res.send(error);
+  }
+});

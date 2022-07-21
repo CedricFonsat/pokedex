@@ -1,0 +1,367 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: inherit !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#background-image{
+    width: 100%;
+    min-height: 100vh;
+    background: url("../img/background.png");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#login{
+    padding:0px;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FF4443;
+    width: 400px;
+    height: 380px;
+    padding: 30px 0px;
+    border-radius: 50px;
+}
+form .imput{
+    margin-top: 15px;
+    width: 250px;
+    height: 40px;
+    padding: 0px 10px;
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom: 1px solid #1C2733;
+}
+form button{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: #1C2733;
+    color: white;
+
+
+}
+form a{
+    color: #1C2733;
+}
+form p{
+    color: #1C2733;
+    font-size: 14px;
+}
+form .imput::placeholder{
+    color: #1C2733;
+}
+h2{
+    text-transform: uppercase;
+}
+
+/************************ page Pokedex and Card  *****/
+
+#containerPokemon{
+    width: 1040px;
+    height: 310px;
+    flex-wrap: wrap;
+    overflow: scroll;
+    display: flex;
+    justify-content: center;
+}
+
+#background-pokedex{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #1C2733;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#cardPokedex{
+    width: 220px;
+    height: 270px;
+    background-color: #FF4443;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 30px;
+    margin: 20px;
+    position: relative;
+}
+#userOn img{
+    width: 50px;
+}
+#cardTop{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#cardTop img{
+    width: 120px;
+    margin-top: 20px;
+}
+#cardTop div{
+    width: 50px;
+    height: 30px;
+    border: 3px solid #FF4443;
+    background-color: #1C2733;
+    position: absolute;
+    top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+#cardTop div p{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+#cardBottom{
+    background-color: white;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0px 0px 30px 30px;
+}
+#namePokemon{
+    margin-top: 20px;
+}
+#cardBottom span{
+    background-color: #1C2733;
+    height: 40px;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 0px 25px 25px;
+}
+#cardBottom span p{
+    color: white;
+    font-weight: bold;
+}
+input#image{
+    display: none;
+}
+#fileImage{
+    background-color: white;
+    padding: 5px 10px;
+}
+
+/***************************  deconexion  ******/
+
+#deconexion{
+    width: 100%;
+    height: 50px;
+}
+#deconexion a{
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+}
+#deconexion a img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+/**************************** useON ******/
+
+#userOn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+}
+#userOn img{
+    margin-right: 10px;
+}
+#userOn h2{
+    color: white;
+}
+
+/********************************* navBar ****/
+
+#navBar{
+    min-width: 400px;
+    min-height: 80px;
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#navBar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#navBar img{
+    width: 50px;
+    opacity: .3;
+}
+
+/************** design page add pokemon ****/
+
+select{
+    width: 250px;
+    height: 40px;
+    background: none;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+}
+select:focus{
+    border: none;
+}
+#addPokemon{
+    margin-top: 40px;
+    width: 100%;
+    height: 500px;
+flex-wrap: none;
+overflow: none;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#addPokemon form{
+    height: 300px;
+}
+#addPokemon form h2{ 
+    font-size: 20px;
+}
+#addPokemon form input{
+    outline: none;
+}
+#addNavBar{
+    min-width: 400px;
+    min-height: 80px;
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+#addNavBar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#addNavBar img{
+    width: 50px;
+    opacity: .3;
+}
+
+/*******  boutton modifier et supprimer **/
+#hoverCard{
+    display: none;
+}
+#cardPokedex:hover #hoverCard{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 150px;
+    z-index: 1;
+    backdrop-filter: blur(7px);
+    border-radius: 30px 30px 0px 0px;
+}
+#hoverCard button{
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/*****************************   Modal */
+
+.modal{
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #00000061;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#del{
+    width: 400px;
+    height: 250px;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#del p{
+    font-weight: lighter;
+    margin-bottom: 20px;
+}
+#del div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#del div a{
+padding: 9px;
+border: none;
+text-decoration: none;
+background-color: #FF4443;
+color: white;
+margin-left: 5px;
+}
+#del div button{
+padding: 10px;
+border: none;
+text-decoration: none;
+background-color: #1C2733;
+color: white;
+cursor: pointer;
+}
+button a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.feu{
+    background-color: #efff43 !important;
+}
+.splash{
+    background-color: #34b588 !important;
+}
+
