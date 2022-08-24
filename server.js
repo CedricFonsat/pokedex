@@ -5,12 +5,13 @@ import pokemonRouter from './routes/pokemonRoute.js';
 import cors from 'cors'
 import session from 'express-session';
 import bcrypt from 'bcrypt'
+import 'dotenv/config'
 
-const db = "mongodb+srv://pokedex:azertyuiop@cluster0.vfny1.mongodb.net/pokedex?retryWrites=true&w=majority"
+const db = process.env.BDD_URL
 const app = express()
 const router = express.Router()
 
-app.use(session({secret: "ABCDEF",saveUninitialized: true, resave: true}))
+app.use(session({secret: process.env.SECRET_KEY ,saveUninitialized: true, resave: true}))
 app.use(cors())
 app.use(express.static('./assets'))
 app.use(express.urlencoded({extended: true}))
@@ -24,11 +25,11 @@ router.get('/*', function(req, res) {
     res.redirect('/');
    });
 
-app.listen(3000, function(err){
+app.listen(process.env.PORT, function(err){
     if (err) {
         console.log(err);
     }else{
-        console.log("connected to localhost 3000");
+        console.log("connected to localhost " + process.env.PORT);
     }
 })
 
